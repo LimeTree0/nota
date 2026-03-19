@@ -29,7 +29,7 @@
 
 | 영역 | 기술 | 비고 |
 |------|------|------|
-| Frontend | Next.js (React) | 웹 브라우저 + 모바일 반응형 |
+| Frontend | React | 웹 브라우저 + 모바일 반응형 |
 | Backend | Spring Boot 3.x | REST API 서버 |
 | Database | PostgreSQL + pgvector | 텍스트 + 벡터 검색 |
 | AI 연동 | OpenAI API 또는 Spring AI | 2단계 이후 |
@@ -141,7 +141,7 @@ AI가 소크라테스식 질문으로 대화 유도
 
 | 단계 | 목표 | 주요 기능 |
 |------|------|-----------|
-| **1단계 (MVP)** | 핵심 기능 완성 | DB 설계, Spring Boot CRUD API, Next.js 기본 UI, 책 등록, 노트 작성, 마크다운, 태그, 키워드 검색 |
+| **1단계 (MVP)** | 핵심 기능 완성 | DB 설계, Spring Boot CRUD API, React 기본 UI, 책 등록, 노트 작성, 마크다운, 태그, 키워드 검색 |
 | **2단계 (고도화)** | 편의 기능 추가 | ISBN 자동 검색, 하이라이트 관리, 템플릿, 코드 하이라이팅, 모바일 반응형 완성, **AI 소크라테스식 독서 대화 + 노트 저장** |
 | **3단계 (AI/RAG)** | 지식 베이스화 | OpenAI 임베딩, pgvector 벡터 검색, AI 질의응답 (내 노트 기반) |
 | **4단계 (멀티유저)** | 서비스 확장 | JWT 인증, 회원가입/로그인, 사용자별 데이터 분리 |
