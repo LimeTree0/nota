@@ -142,7 +142,55 @@ com.limecoding.api
 
 ---
 
-## 6. 네이밍 컨벤션
+## 6. 테스트 전략 (TDD)
+
+Red-Green-Refactor 사이클을 따른다.
+
+```
+Red    → 실패하는 테스트를 먼저 작성
+Green  → 테스트를 통과하는 최소한의 코드 작성
+Refactor → 코드를 개선하면서 테스트가 계속 통과하는지 확인
+```
+
+### 단위 테스트
+
+비즈니스 로직이 포함된 레이어에 대해서만 단위 테스트를 작성한다.
+
+| 레이어 | 단위 테스트 | 이유 |
+|--------|:-----------:|------|
+| **Domain** (Entity, Domain Service) | O | 핵심 비즈니스 로직 |
+| **Application** (Service) | O | 유스케이스 로직, 의존성은 Mock 처리 |
+| Presentation (Controller) | X | |
+| Infrastructure | X | |
+
+### 통합 테스트
+
+실제 외부 시스템과의 연동이 필요한 경우에만 통합 테스트를 작성한다.
+
+| 대상 | 통합 테스트 | 이유 |
+|------|:-----------:|------|
+| **Repository** | O | DB 저장/조회는 실제 연결해야 검증 가능 |
+| 외부 API 클라이언트 | O | 실제 통신 결과 확인 필요 시 |
+
+### 테스트 패키지 구조
+
+프로덕션 코드와 동일한 패키지 구조를 따른다.
+
+```
+src/test/java/com/limecoding/api
+├── book/
+│   ├── application/
+│   │   └── BookServiceTest.java          # 단위 테스트
+│   ├── domain/
+│   │   └── BookTest.java                 # 단위 테스트
+│   └── infrastructure/
+│       └── BookJpaRepositoryTest.java    # 통합 테스트
+└── ...
+```
+
+---
+
+## 7. 네이밍 컨벤션
 
 | 구분 | 패턴 | 예시 |
 |------|------|------|
