@@ -58,7 +58,7 @@ class BookTest {
             // Given & When & Then
             assertThatThrownBy(() -> BookFixture.createBook("title", "author", null, BookSource.MANUAL))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage("ISBN cannot be empty");
+                    .hasMessage("ISBN must be 13 characters");
         }
 
         @Test

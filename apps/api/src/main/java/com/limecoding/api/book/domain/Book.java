@@ -96,6 +96,10 @@ public class Book {
     }
 
     public void updateISBN(String isbn) {
+        if (isbn == null || isbn.isEmpty()) {
+            throw new IllegalArgumentException("ISBN must be 13 characters");
+        }
+
         if (isbn.length() != 13) {
             throw new IllegalArgumentException("ISBN must be 13 characters");
         }
